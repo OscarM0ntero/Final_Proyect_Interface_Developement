@@ -34,8 +34,9 @@ This project is built with Angular, uses a PHP backend, and stores data in a MyS
 
 ### 👤 Admin User Management
 ![User Management](./screenshots/admin-users.png)
-![User Add](./screenshots/user-add.png)
-![User Edit](./screenshots/user-edit.png)
+
+### ❌ Error 404
+![Error 404](./screenshots/404.png)
 
 
 ---
@@ -60,6 +61,8 @@ This project is built with Angular, uses a PHP backend, and stores data in a MyS
 
 ## 🗃️ Database
 
+### 🎞️ Movie Favorites Table
+
 Favorites are stored in the `peliculas_favoritas` table:
 
 ```sql
@@ -68,3 +71,72 @@ CREATE TABLE peliculas_favoritas (
   id_pelicula INT NOT NULL,
   id_usuario INT NOT NULL
 );
+```
+
+## 👥 User Table Schema
+
+User information is stored in the `sgi_usuarios` table, with the following structure:
+
+```sql
+CREATE TABLE `sgi_usuarios` (
+  `id_usuario` int(11) NOT NULL AUTO_INCREMENT,
+  `usuario` varchar(100) NOT NULL,
+  `nombre_publico` varchar(255) DEFAULT NULL,
+  `pass_user` varchar(100) NOT NULL,
+  `id_rol` int(11) DEFAULT NULL,
+  `habilitado` tinyint(1) DEFAULT 1,
+  `token_sesion` varchar(250) DEFAULT NULL,
+  `token_passwd` varchar(255) DEFAULT NULL,
+  `token_passwd_expira` datetime DEFAULT NULL,
+  `observaciones` text DEFAULT NULL,
+  PRIMARY KEY (`id_usuario`),
+  UNIQUE KEY `token_sesion` (`token_sesion`),
+  KEY `id_rol` (`id_rol`),
+  CONSTRAINT `sgi_usuarios_ibfk_1` FOREIGN KEY (`id_rol`) REFERENCES `sgi_roles` (`id_rol`) ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=67 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+```
+
+This table is used for user login, public display name, role-based permissions, and session control.
+
+---
+
+## 🌐 External API
+
+Movie data is retrieved using the [TheMovieDB](https://www.themoviedb.org/) public API.
+
+Example response:
+
+```json
+{
+  "id": 242582,
+  "title": "Nightcrawler",
+  "overview": "When Lou Bloom...",
+  "poster_path": "/image.jpg",
+  ...
+}
+```
+
+---
+
+## 🛡️ Security & Access Control
+
+- Authentication based on JWT tokens stored in `localStorage`.
+- Role-based access control for admin-only features.
+- Automatic redirection for unauthorized access attempts.
+- Logout clears the token and session data.
+
+---
+
+## ⚠️ Custom 404 Page
+
+Users navigating to nonexistent routes are redirected to a custom 404 error page.
+
+---
+
+## 👨‍💻 Author
+
+**Oscar Montero Hinojosa**  
+User Interface Development and Business Management System – Final Project
+
+---
+
