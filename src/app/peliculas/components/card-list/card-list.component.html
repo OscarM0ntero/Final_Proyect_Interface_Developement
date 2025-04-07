@@ -1,0 +1,25 @@
+<mat-card class="card" (click)="saveRoute()" [ngStyle]="{
+	'background-image': 'linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.95)), url(' + pelicula.background + ')',
+	'background-size': 'cover',
+	'background-position': '70% 30%',
+	'background-repeat': 'no-repeat',
+}">
+	<img [src]="pelicula.poster_path" [alt]="pelicula.title" class="image" [routerLink]="['/peliculas', pelicula.id]">
+	<mat-card-content class="card-content" [routerLink]="['/peliculas', pelicula.id]">
+		<mat-card-title>{{ pelicula.title }}</mat-card-title>
+		<mat-card-subtitle>Fecha de estreno: {{ pelicula.release_date | date}}</mat-card-subtitle>
+		<mat-card-subtitle>{{ formatAverage(pelicula.vote_average) }} entre {{ pelicula.vote_count }}
+			votos</mat-card-subtitle>
+		<mat-card-subtitle>Popularidad: {{ formatAverage(pelicula.popularity) }}</mat-card-subtitle>
+	</mat-card-content>
+	<span class="spacer"></span>
+	<div class="card-actions">
+		<div class="fav-btn">
+			<button mat-fab color="{{ isFav ? 'accent' : 'warn' }}"
+				matTooltip="{{ isFav ? 'Eliminar de favoritos' : 'Añadir a favoritos' }}" matTooltipPosition="above"
+				(click)="toggleFav()" [disabled]="!pelicula">
+				<mat-icon class="big-icon">{{ isFav ? 'check' : 'favorite' }}</mat-icon>
+			</button>
+		</div>
+	</div>
+</mat-card>

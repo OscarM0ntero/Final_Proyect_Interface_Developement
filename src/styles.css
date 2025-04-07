@@ -1,0 +1,48 @@
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+	height: 100%;
+	background-image: url('assets/fade.png');
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: #1e1e1e;
+	font-family: "Fira Code", monospace;
+}
+
+body {
+	margin: 0;
+	font-family: "Fira Code", monospace;
+}
+
+.spacer {
+	flex: 1 1 auto;
+}
+
+.spacer-smoll {
+	flex: 0.01 1 auto;
+}
+
+.mat-divider {
+	border-top-color: #FFD740 !important;
+	/* F44336 */
+	border-right-color: #F44336 !important;
+	/* FFD740 */
+}
+
+.custom-mat-field .mdc-line-ripple::before,
+.custom-mat-field .mdc-line-ripple::after {
+	border-bottom-color: #FFD740 !important;
+}
+
+.custom-mat-field .mat-mdc-floating-label,
+.custom-mat-field .mat-mdc-input-element {
+	color: #1e1e1e !important;
+}
+
+.custom-dialog-container .mat-dialog-container {
+	background-color: #1e1e1e !important;
+	color: white !important;
+	border-radius: 12px;
+}

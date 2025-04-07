@@ -1,0 +1,39 @@
+mat-dialog-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 20px;
+}
+
+h2 {
+	font-family: "Fira Code", monospace !important;
+	font-weight: bold !important;
+}
+
+mat-dialog-content {
+	font-family: "Fira Code", monospace !important;
+}
+
+mat-dialog-actions {
+	margin-bottom: 10px;
+	display: flex;
+    justify-content: center; 
+}
+
+button {
+	font-family: "Fira Code", monospace;
+	font-weight: bold;
+}
+
+h2 {
+	font-size: 22px;
+	font-weight: bold;
+}
+
+p {
+	font-size: 18px;
+}
+
+button {
+	margin: 0 8px;
+}

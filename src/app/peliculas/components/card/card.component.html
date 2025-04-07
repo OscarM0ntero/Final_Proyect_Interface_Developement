@@ -1,0 +1,10 @@
+<mat-card class="card" [routerLink]="['/peliculas', pelicula.id]" (click)="saveRoute()">
+	<img mat-card-image [src]="pelicula.poster_path" [alt]="pelicula.title">
+	<mat-card-content class="mt-2 card-content">
+		<mat-card-title>{{ pelicula.title }}</mat-card-title>
+		<mat-card-subtitle>Fecha de estreno: {{ pelicula.release_date | date}}</mat-card-subtitle>
+		<mat-card-subtitle>{{ formatAverage(pelicula.vote_average) }} entre {{ pelicula.vote_count }} votos</mat-card-subtitle>
+		<mat-card-subtitle>Popularidad: {{ formatAverage(pelicula.popularity) }}</mat-card-subtitle>
+	</mat-card-content>
+
+</mat-card>

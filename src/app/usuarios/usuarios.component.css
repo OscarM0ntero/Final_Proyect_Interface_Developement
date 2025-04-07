@@ -1,0 +1,85 @@
+.usuarios-container {
+    background-color: #1e1e1e;
+    color: white;
+	height: calc(100% - 128px);
+}
+
+h1.mat-headline-2 {
+    font-family: "Fira Code", monospace;
+    color: white;
+    font-weight: bold;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.filter-container {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+mat-form-field {
+    flex: 1;
+}
+
+.table-container {
+	width: 80%;
+	margin: auto;
+}
+
+.user-table {
+    width: 100%;
+    background-color: #2a2a2a;
+    color: white !important;
+    border-radius: 8px;
+	font-family: 'Fira Code', monospace;
+	
+}
+
+.actions-cell {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+}
+
+.fab-button {
+    position: absolute;
+    top: 100px;
+    right: 36px;
+    z-index: 1000;
+}
+
+.big-icon {
+	width: 40px;
+	height: 40px;
+	font-size: 40px;
+}
+
+th {
+	color: white;
+	font-family: 'Fira Code', monospace;
+	font-size: 20px;
+	font-weight: bold;
+	text-align: center;
+}
+td {
+	color: #dadada;
+	font-family: 'Fira Code', monospace;
+	font-size: 18px;
+	text-align: center;
+}
+
+mat-paginator {
+    background-color: #1e1e1e;
+    color: white;
+}
+::ng-deep mat-paginator mat-form-field {
+    background-color: white !important;
+    border-radius: 4px;
+}
+
+::ng-deep mat-paginator div button svg {
+    color: white !important;
+}
+

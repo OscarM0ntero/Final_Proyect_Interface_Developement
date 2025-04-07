@@ -1,0 +1,55 @@
+<ng-template #divLoading>
+	<div class="loading-overlay">
+		<mat-spinner color="accent"></mat-spinner>
+	</div>
+</ng-template>
+
+<div *ngIf="pelicula; else divLoading" class="pelicula-background"
+	[ngStyle]="{'background-image': 'linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.95)), url(' + pelicula.background + ')'}">
+	<div class="pelicula-container">
+		<div class="pelicula-card">
+			<div class="backButton">
+				<button mat-button mat-flat-button class="backBtn" color="warn" (click)="goBack()">
+					<mat-icon>arrow_back</mat-icon>
+					Atrás
+				</button>
+			</div>
+			<div class="pelicula-card-todo">
+				<!-- Imagen de la película -->
+				<img [src]="pelicula.poster_path" alt="{{ pelicula.title }}" class="pelicula-img" />
+
+				<!-- Contenido de la película -->
+				<div class="pelicula-content">
+					<h1 class="mat-headline-1">{{ pelicula.title }}</h1>
+					<p class="mat-body-1">{{ pelicula.release_date | date }}</p>
+					<p class="mat-body-1 overview">{{ pelicula.overview }}</p>
+
+					<div class="pelicula-details">
+						<p class="mat-body-1"><strong>Popularidad: </strong>{{ formatAverage(pelicula.popularity) }}</p>
+						<p class="mat-body-1"><strong>Nota media: </strong>{{ formatAverage(pelicula.vote_average) }}
+						</p>
+						<p class="mat-body-1"><strong>Idioma: </strong> <span alt="pelicula.original_language">{{
+								getFlag(pelicula.original_language) }}</span></p>
+						<p class="mat-body-1"><strong>Cantidad de votos: </strong>{{ pelicula.vote_count }}</p>
+					</div>
+
+					<mat-divider></mat-divider>
+
+					<div class="pelicula-actions">
+						<div class="fav-btn">
+							<button mat-fab
+							        color="{{ isFav ? 'accent' : 'warn' }}"
+							        matTooltip="{{ isFav ? 'Eliminar de favoritos' : 'Añadir a favoritos' }}"
+							        matTooltipPosition="above"
+							        (click)="toggleFav()"
+							        [disabled]="!pelicula">
+								<mat-icon class="big-icon">{{ isFav ? 'check' : 'favorite' }}</mat-icon>
+							</button>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

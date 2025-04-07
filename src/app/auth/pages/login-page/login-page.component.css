@@ -1,0 +1,144 @@
+.login-container {
+	position: fixed;
+	/* Ocupa toda la pantalla */
+	top: 128px;
+	left: 0;
+	width: 100vw;
+	height: calc(100vh - 192px);
+	background-color: #1e1e1e;
+	/* Fondo negro */
+	display: flex;
+	justify-content: center;
+	z-index: 9999;
+}
+
+.content-container {
+	width: 400px;
+}
+
+h1.mat-headline-2 {
+	font-family: "Fira Code", monospace;
+	color: white;
+	font-weight: bold;
+	margin-bottom: 20px;
+	margin-top: 20px;
+	text-align: center;
+}
+
+mat-form-field {
+	width: 100%;
+	margin-bottom: 16px;
+}
+
+.buttons {
+	display: flex;
+	justify-content: center;
+	
+}
+
+.button-group {
+	display: flex;
+	justify-content: center;
+	gap: 20px;
+}
+
+.button-single {
+	display: flex;
+	justify-content: center;
+	background-color: white;
+	border-radius: 5px;
+}
+
+button {
+	width: 150px;
+}
+
+.flex a {
+	color: #FFD740;
+	font-family: "Fira Code", monospace;
+	text-decoration: underline;
+}
+
+.toolbar {
+	display: flex;
+	position: fixed;
+	top: 0;
+	left: 0;
+	/* 3 columnas iguales */
+	align-items: center;
+	justify-content: center;
+	font-family: "Fira Code", monospace;
+	font-weight: bold;
+	height: 128px;
+}
+
+.toolbar h1 {
+	font-family: "Fira Code", monospace;
+	font-weight: bold;
+	font-size: 45px;
+	margin: 0;
+}
+
+.toolbar-section {
+	display: flex;
+	align-items: center;
+}
+
+.left {
+	justify-content: flex-start;
+	/* Alineado a la izquierda */
+}
+
+.center {
+	justify-content: center;
+	/* Alineado al centro */
+}
+
+.right {
+	justify-content: flex-end;
+	/* Alineado a la derecha */
+}
+
+.footer {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	z-index: 1000;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	align-items: center;
+	height: 64px;
+	color: #1e1e1e;
+	font-family: "Fira Code", monospace;
+	font-weight: bold;
+}
+
+.footer-section {
+	display: flex;
+	align-items: center;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+.mat-divider {
+	border-top-color: #1e1e1e !important;
+	/* F44336 */
+	border-right-color: #1e1e1e !important;
+	/* FFD740 */
+	height: 30px;
+	width: 4px;
+	margin-right: 10px;
+	margin-left: 10px;
+}
+
+.logo {
+	max-height: 120px;
+}

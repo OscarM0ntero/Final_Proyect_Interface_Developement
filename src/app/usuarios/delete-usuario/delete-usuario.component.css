@@ -1,0 +1,31 @@
+.mat-dialog-content {
+	overflow: hidden;
+	width: 100%;
+}
+
+.container {
+	margin: 0 auto;
+	width: 90%;
+	text-align: center;
+	padding-top: 10px;
+	font-family: 'Fira Code', monospace;
+}
+
+.centered {
+	margin: auto;
+	margin-bottom: 10px;
+}
+
+mat-form-field {
+	width: 100%;
+}
+
+h3 {
+	font-family: 'Fira Code', monospace !important;
+    font-weight: bold !important;
+}
+
+.centered {
+	margin: auto;
+	margin-bottom: 10px;
+}

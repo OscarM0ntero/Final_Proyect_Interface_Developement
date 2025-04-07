@@ -1,0 +1,70 @@
+<div class="usuarios-container">
+	<h1 class="mat-headline-2">Gestión de Usuarios</h1>
+
+	<div class="table-container">
+		<!-- Tabla de usuarios -->
+		<table mat-table [dataSource]="dataSource" matSort class="user-table">
+
+			<!-- ID -->
+			<ng-container matColumnDef="id_usuario">
+				<th mat-header-cell *matHeaderCellDef>ID</th>
+				<td mat-cell *matCellDef="let usuario">{{ usuario.id_usuario }}</td>
+			</ng-container>
+
+			<!-- Usuario -->
+			<ng-container matColumnDef="usuario">
+				<th mat-header-cell *matHeaderCellDef>Usuario</th>
+				<td mat-cell *matCellDef="let usuario">{{ usuario.usuario }}</td>
+			</ng-container>
+
+			<!-- Nombre Público -->
+			<ng-container matColumnDef="nombre_publico">
+				<th mat-header-cell *matHeaderCellDef>Nombre Público</th>
+				<td mat-cell *matCellDef="let usuario">{{ usuario.nombre_publico }}</td>
+			</ng-container>
+
+			<!-- Rol -->
+			<ng-container matColumnDef="rol">
+				<th mat-header-cell *matHeaderCellDef>Rol</th>
+				<td mat-cell *matCellDef="let usuario">{{ usuario.rol }}</td>
+			</ng-container>
+
+			<!-- Habilitado -->
+			<ng-container matColumnDef="habilitado">
+				<th mat-header-cell *matHeaderCellDef>Habilitado</th>
+				<td mat-cell *matCellDef="let usuario">
+					<mat-icon *ngIf="usuario.habilitado" color="accent">check_circle</mat-icon>
+					<mat-icon *ngIf="!usuario.habilitado" color="warn">cancel</mat-icon>
+				</td>
+			</ng-container>
+
+			<!-- Botones de acción -->
+			<ng-container matColumnDef="actions">
+				<th mat-header-cell *matHeaderCellDef>Acciones</th>
+				<td mat-cell *matCellDef="let usuario" class="actions-cell">
+
+					<!-- Botón de editar -->
+					<button mat-icon-button color="accent" (click)="editUsuario(usuario)" matTooltip="Editar">
+						<mat-icon>edit</mat-icon>
+					</button>
+
+					<!-- Botón de eliminar -->
+					<button mat-icon-button color="warn" (click)="deleteUsuario(usuario)" matTooltip="Eliminar">
+						<mat-icon>delete</mat-icon>
+					</button>
+				</td>
+			</ng-container>
+
+			<!-- Filas -->
+			<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+			<tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+		</table>
+	</div>
+	<!-- Paginación -->
+	<mat-paginator color="accent" [pageSizeOptions]="[5, 10, 20]"></mat-paginator>
+
+	<!-- FAB (Floating Action Button) para añadir usuario -->
+	<button mat-fab color="accent" class="fab-button" (click)="addUsuario()" matTooltip="Añadir usuario">
+		<mat-icon class="big-icon">add</mat-icon>
+	</button>
+</div>

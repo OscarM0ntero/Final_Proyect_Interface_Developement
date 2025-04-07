@@ -1,0 +1,70 @@
+<mat-sidenav-container fullscreen style="background-color: #1e1e1e !important;">
+
+	<mat-sidenav #sidenav mode="push" [ngStyle]="{ width: '250px' }" style="background-color: white !important;">
+		<mat-toolbar style="background-color: #1e1e1e !important; color: #FFD740;">
+			<span>Menú</span>
+			<span class="spacer"></span>
+			<button mat-icon-button (click)="sidenav.toggle()">
+				<mat-icon>menu</mat-icon>
+			</button>
+		</mat-toolbar>
+
+		<mat-nav-list>
+			<mat-list-item *ngFor="let item of sidebarItems" [routerLink]="item.url" (click)="sidenav.toggle()"
+				class="custom-list-item">
+
+				<mat-icon class="custom-icon">{{ item.icon }}</mat-icon>
+
+				<span class="custom-label">{{ item.label }}</span>
+			</mat-list-item>
+
+		</mat-nav-list>
+	</mat-sidenav>
+
+	<mat-toolbar color="accent" class="toolbar">
+		<div class="toolbar-section left">
+			<button mat-icon-button (click)="sidenav.toggle()">
+				<mat-icon>menu</mat-icon>
+			</button>
+		</div>
+
+		<div class="toolbar-section center">
+			<img class="logo" src="assets/omdbLogo.png" alt="OMDB Logo">
+		</div>
+
+		<div class="toolbar-section right">
+			<span>{{ user }}</span>
+			<span class="spacer-smoll"></span>
+			<button mat-raised-button color="warn" style="margin-left: 8px" (click)="onLogout()">
+				Logout
+			</button>
+		</div>
+	</mat-toolbar>
+
+
+	<div class="container">
+		<router-outlet></router-outlet>
+	</div>
+
+	<mat-toolbar class="footer" color="accent">
+		<div class="footer-section left">
+			<a href="https://iesplayamar.es/">IES Playamar</a>
+
+			<mat-divider [vertical]="true"></mat-divider>
+			<span>DAM 2</span>
+			<mat-divider [vertical]="true"></mat-divider>
+			<span>2025</span>
+		</div>
+
+		<div class="footer-section center">
+			<a href="https://github.com/OscarM0ntero">Oscar Montero DB</a>
+		</div>
+
+		<div class="footer-section right">
+			<span>Sistemas de Gestión Empresarial</span>
+		</div>
+	</mat-toolbar>
+
+
+
+</mat-sidenav-container>

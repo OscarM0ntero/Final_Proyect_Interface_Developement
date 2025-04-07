@@ -1,0 +1,28 @@
+.mat-dialog-content {
+	overflow: hidden;
+	width: 100%;
+}
+
+.container {
+	margin: 0 auto;
+	width: 90%;
+	text-align: center;
+	padding-top: 10px;
+}
+
+.centered {
+	margin: auto;
+	margin-bottom: 10px;
+}
+
+mat-form-field {
+	width: 100%;
+}
+
+div#contain {
+    text-align: justify;
+}
+
+.form.habilitado {
+    text-align: left !important;
+}

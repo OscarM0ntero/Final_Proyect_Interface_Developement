@@ -1,0 +1,75 @@
+<mat-toolbar color="accent" class="toolbar">
+	<div class="toolbar-section center">
+		<img class="logo" src="assets/omdbLogo.png" alt="OMDB Logo">
+	</div>
+</mat-toolbar>
+<div class="login-container">
+
+	<div class="content-container" [formGroup]="loginForm">
+		<h1 class="mat-headline-2">Login</h1>
+
+		<mat-form-field class="custom-mat-field" color="warn" *ngIf="step === 1">
+			<mat-label>Usuario</mat-label>
+			<input #loginInput matInput placeholder="Correo electrónico" formControlName="username" type="text"
+				required>
+			<mat-error *ngIf="loginForm.get('username')?.hasError('email')">
+				Correo electrónico inválido
+			</mat-error>
+		</mat-form-field>
+
+		<mat-form-field class="custom-mat-field" *ngIf="step === 2">
+			<mat-label>Contraseña</mat-label>
+			<input #passwordInput matInput placeholder="Contraseña" formControlName="password" type="password" required>
+		</mat-form-field>
+
+		<div class="buttons">
+
+			<div class="button-group" *ngIf="step === 2">
+				<div class="button-single">
+					<button mat-button mat-flat-button color="warn" (click)="onBack()">
+						<mat-icon>arrow_back</mat-icon>
+						Atrás
+					</button>
+				</div>
+				<div class="button-single">
+					<button mat-button mat-flat-button color="accent" (click)="onLogin()" [disabled]="loginForm.get('password')?.invalid">
+						<mat-icon>login</mat-icon>
+						Acceder
+					</button>
+				</div>
+
+			</div>
+
+			<div class="button-single" *ngIf="step === 1">
+				<button mat-button mat-flat-button color="accent" (click)="onNext()"
+					[disabled]="loginForm.get('username')?.invalid">
+					<mat-icon>navigate_next</mat-icon>
+					Siguiente
+				</button>
+			</div>
+
+
+		</div>
+
+	</div>
+
+</div>
+
+<mat-toolbar class="footer" color="accent">
+	<div class="footer-section left">
+		<a href="https://iesplayamar.es/">IES Playamar</a>
+
+		<mat-divider [vertical]="true"></mat-divider>
+		<span>DAM 2</span>
+		<mat-divider [vertical]="true"></mat-divider>
+		<span>2025</span>
+	</div>
+
+	<div class="footer-section center">
+		<a href="https://github.com/OscarM0ntero">Oscar Montero DB</a>
+	</div>
+
+	<div class="footer-section right">
+		<span>Sistemas de Gestión Empresarial</span>
+	</div>
+</mat-toolbar>
